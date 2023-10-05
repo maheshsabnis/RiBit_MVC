@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_WebApp.Models.CustomValidators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace MVC_WebApp.Models
     {
         [Key]
         public int DeptNo { get; set; }
+        [Required(ErrorMessage ="Unique Id is Required")]
+        public string DeptUniqueId { get; set; }
         [Required(ErrorMessage ="DeptName is required")]
         [StringLength(200)]
         public string DeptName { get; set; }
@@ -17,6 +20,7 @@ namespace MVC_WebApp.Models
         [StringLength(260)]
         public string Location { get; set; }
         [Required(ErrorMessage = "Capacity is require")]
+        [NonNegative(ErrorMessage ="Value Cannot be -VE")]
         public int Capacity { get; set; }
 
         // One-to-many relationship with Employee

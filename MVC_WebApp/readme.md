@@ -64,3 +64,12 @@ emp.EMpNAme= "kjdfhfk;aj"
 ctx.SaveChanges()
 ````
 
+
+
+# ENabling Migrations
+
+Tools->Package Manager COnsole
+
+Enable-Migrations -ContextTypeName [NAmeSpace.ContextClassName]
+
+Add-Migration [Migration-Name]

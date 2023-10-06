@@ -1,0 +1,22 @@
+﻿ 
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+ 
+    <hr />
+    <h3 class="text-danger">
+        <div class="alert alert-danger">
+            Error Occurd in @ViewData["controller"] Controller
+        </div>
+        <div class="alert alert-danger">
+            With Error as @ViewData["errorMessage"]
+        </div>
+        <div class="alert alert-danger">
+            In @ViewData["action"]
+        </div>
+    </h3>
+
+    @Html.ActionLink("Go Back", ViewData["action"].ToString(), ViewData["controller"].ToString())
+ 
+ 

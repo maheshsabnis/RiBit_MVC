@@ -1,4 +1,5 @@
-﻿using MVC_WebApp.Models;
+﻿using MVC_WebApp.CustomFilters;
+using MVC_WebApp.Models;
 using MVC_WebApp.Services;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MVC_WebApp.Controllers
 {
+   // [LogFilter]
     public class DepartmentController : Controller
     {
         IDataAccessService<Department, int> deptServ;
@@ -86,27 +88,27 @@ namespace MVC_WebApp.Controllers
         }
 
 
-        protected override void OnException(ExceptionContext filterContext)
-        {
-            //1. Handle the exception so that the current execution Process is complete
-            filterContext.ExceptionHandled = true;
-            // 2.Read the exception
-            Exception ex = filterContext.Exception;
+        //protected override void OnException(ExceptionContext filterContext)
+        //{
+        //    //1. Handle the exception so that the current execution Process is complete
+        //    filterContext.ExceptionHandled = true;
+        //    // 2.Read the exception
+        //    Exception ex = filterContext.Exception;
 
-            // 3. Create a ViewData
-            ViewDataDictionary vData = new ViewDataDictionary();
-            vData["controller"] = filterContext.RouteData.Values["controller"];
-            vData["action"] = filterContext.RouteData.Values["action"];
-            vData["errorMessage"] = ex.Message;
+        //    // 3. Create a ViewData
+        //    ViewDataDictionary vData = new ViewDataDictionary();
+        //    vData["controller"] = filterContext.RouteData.Values["controller"];
+        //    vData["action"] = filterContext.RouteData.Values["action"];
+        //    vData["errorMessage"] = ex.Message;
 
-            // 4. Set the Result
-            filterContext.Result = new ViewResult()
-            { 
-               ViewName = "Error",
-               ViewData = vData 
-            };
+        //    // 4. Set the Result
+        //    filterContext.Result = new ViewResult()
+        //    { 
+        //       ViewName = "Error",
+        //       ViewData = vData 
+        //    };
 
-        }
+        //}
 
         private bool IsUniqueIdExist(string uid)
         { 

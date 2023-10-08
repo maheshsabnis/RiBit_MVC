@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_WebApp", "MVC_WebApp\MV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_EF_Migrations", "CS_EF_Migrations\CS_EF_Migrations.csproj", "{82CFEB59-84C1-4406-9E0B-F6608746CECD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_App", "API_App\API_App.csproj", "{F890A773-D6F7-4109-9EB8-B6B907EC08DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{82CFEB59-84C1-4406-9E0B-F6608746CECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82CFEB59-84C1-4406-9E0B-F6608746CECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82CFEB59-84C1-4406-9E0B-F6608746CECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

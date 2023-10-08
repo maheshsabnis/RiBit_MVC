@@ -123,5 +123,11 @@ namespace MVC_WebApp.Controllers
 
         }
 
+        public ActionResult ShowDetails(int id)
+        {
+            TempData["DeptNo"] = id;
+            return RedirectToAction("Index", "Employee");
+        }
+
     }
 }

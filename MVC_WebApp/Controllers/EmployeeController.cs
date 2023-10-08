@@ -22,12 +22,26 @@ namespace MVC_WebApp.Controllers
         // GET: Employee
         public ActionResult Index()
         {
-            var records = empServ.Get();
+            List<Employee> records = new List<Employee>();
+            // 1. REad data from TempData
+            int dno = Convert.ToInt32(TempData["DeptNo"]);
+
+            if (dno > 0)
+            {
+                records = empServ.Get().Where(e => e.DeptNo == dno).ToList();
+            }
+            else
+            {
+                records = empServ.Get().ToList();
+            }
+            // Keep the TempData
+            TempData.Keep();
             return View(records);
         }
 
         public ActionResult Create()
         {
+            int dno = Convert.ToInt32(TempData["DeptNo"]);
             // Return A View with Empty Departmet Data
             // Along with an EMpty Employee Object pass
             // List of Departments

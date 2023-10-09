@@ -25,8 +25,8 @@ namespace API_App.Models
         public string Location { get; set; }
         public int Capacity { get; set; }
         public string DeptUniqueId { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; } = null;
     }
 }

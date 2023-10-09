@@ -7,11 +7,18 @@ namespace API_App
 {
     public static class WebApiConfig
     {
+        /// <summary>
+        /// HttpConfiguration: Read each Incomming Request
+        /// and will generate a Route Template
+        /// as api/'controller'/id
+        /// </summary>
+        /// <param name="config"></param>
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
 
             // Web API routes
+            // Help the Custom Routes aka ATtribute based ROuting
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

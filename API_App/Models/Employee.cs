@@ -20,7 +20,7 @@ namespace API_App.Models
         public int Salary { get; set; }
         public int DeptNo { get; set; }
         public string EmpUniqueId { get; set; }
-    
-        public virtual Department Department { get; set; }
+
+        public virtual Department Department { get; set; } = null;
     }
 }

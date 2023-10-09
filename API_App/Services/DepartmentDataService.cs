@@ -14,10 +14,17 @@ namespace API_App.Services
 
         ResponseObject<Department> response;
 
-
-        public DepartmentDataService()
+        /// <summary>
+        /// Inject the RCompanyEntities into the DepartmentDataService class using 
+        /// The Constructor Injection
+        /// 
+        /// The ASP.NET Execution ENgine will query to the DI Container
+        /// for RCompanyEntities CLass and will receive the Resolved INstance of it
+        /// </summary>
+        public DepartmentDataService(RCompanyEntities ctx)
         {
-            ctx = new RCompanyEntities();
+           // ctx = new RCompanyEntities();
+           this.ctx = ctx;
             response = new ResponseObject<Department>();
         }
 
@@ -67,7 +74,18 @@ namespace API_App.Services
         {
             try
             {
-                response.Records = await ctx.Departments.ToListAsync();
+                var records = await ctx.Departments.ToListAsync();
+
+                response.Records = (from record in records
+                                    select new Department()
+                                    {
+                                        DeptNo = record.DeptNo,
+                                        DeptName = record.DeptName,
+                                        Location = record.Location,
+                                        Capacity = record.Capacity,
+                                        DeptUniqueId = record.DeptUniqueId
+                                    }).ToList();
+
                 response.IsSuccess = true;
                 response.StatusMessage = "Data read successfully";
                 response.StatusCode = 200;

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnGet").on("click", function () {
+            $.ajax({
+                url: 'https://localhost:44343/api/Department',
+                method: "GET"
+            })
+                .done(function (resp) {
+                    alert(`Response ${JSON.stringify(resp)}`);
+                })
+                .error(function (error) {
+                    alert(`Error Occurred ${error}`);
+                });
+        }); 
+
+        $("#btnPost").on("click", function () {
+            var dept = {
+                DeptName: 'IT-Sys',
+                Location: 'Mumbai',
+                Capacity: 1111,
+                DeptUniqueId: 'Dept-005'
+            };
+            $.ajax({
+                url: 'https://localhost:44343/api/Department',
+                method: "POST",
+                contentType: 'application/json',
+                data: JSON.stringify(dept),
+                dataType: 'json',
+               
+            })
+                .done(function (resp) {
+                    alert(`Response ${JSON.stringify(resp)}`);
+                })
+                .error(function (error) {
+                    alert(`Error Occurred ${error}`);
+                });
+        }); 
+    });
+</script>
+
+<table class="table table-bordered table-striped table-danger">
+    <tbody>
+        <tr>
+            <td>
+                <input type="button" id="btnGet" class="btn btn-primary" value="Read All"/>
+            </td>
+            <td>
+                <input type="button" id="btnPost" class="btn btn-success" value="Create New"/>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

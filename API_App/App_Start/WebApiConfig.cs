@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web.Http;
 
 namespace API_App
@@ -16,6 +17,9 @@ namespace API_App
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            // ENabling CORS
+
+            config.EnableCors();
 
             // Web API routes
             // Help the Custom Routes aka ATtribute based ROuting

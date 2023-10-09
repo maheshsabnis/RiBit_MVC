@@ -8,9 +8,14 @@ using System.Net.Http;
 using System.Security.Cryptography.Xml;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace API_App.Controllers
 {
+    // 1 *: Origin
+    // 2 *: Headers
+    // 3 *: Methods
+    [EnableCors("*","*","*")]
     public class DepartmentController : ApiController
     {
         IDataAccessService<Department, int> deptServ;

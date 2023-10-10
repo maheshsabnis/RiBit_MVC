@@ -1,0 +1,53 @@
+﻿<h3>The List View</h3>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        /* Make an ajax call */
+        $.ajax({
+            url: 'https://localhost:44343/api/Department',
+            method: 'GET'
+        }).done(function (resp) {
+            var data = resp.Records;
+            // PAss all Keys of the 0th record from the Response
+            generateHeader(Object.keys(data[0]));
+            generateBody(data);
+            $("#dvstatus").text('Data read successfully');
+        }).fail(function (error) {
+            $("#dvstatus").text('Fail to read data');
+        });
+        function generateHeader(columns){
+            var header = '<tr>';
+
+            for (var i = 0; i < columns.length; i++) {
+                header += `<th>${columns[i]}</th>`
+            }
+            header += '</tr>';
+
+            $("#thead").html(header);
+
+        }
+        function generateBody(records){
+            var body = '';
+            records.forEach(function (rec, idx) {
+                body += '<tr>';
+                // Read all keys of current rec
+                Object.keys(rec).forEach(function (c, i) {
+                    // FOr each Record read value of each property
+                    body += `<td>${rec[c]}</td>`
+                });
+                body += '</tr>';
+            });
+            $("#tbody").html(body);
+        }
+    });
+
+    
+</script>
+
+
+<table class="table table-bordered table-danger table-striped">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+</table>
+<hr/>
+<div id="dvstatus"></div>

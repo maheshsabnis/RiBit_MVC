@@ -13,5 +13,11 @@ namespace MVC_WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult IndexTable()
+        {
+            return View();
+        }
+
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_EF_Migrations", "CS_EF_M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_App", "API_App\API_App.csproj", "{F890A773-D6F7-4109-9EB8-B6B907EC08DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoDoDO", "DoDoDO\DoDoDO.csproj", "{221BB5C0-E838-471E-B590-F9D460ABB56D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F890A773-D6F7-4109-9EB8-B6B907EC08DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{221BB5C0-E838-471E-B590-F9D460ABB56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221BB5C0-E838-471E-B590-F9D460ABB56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221BB5C0-E838-471E-B590-F9D460ABB56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221BB5C0-E838-471E-B590-F9D460ABB56D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

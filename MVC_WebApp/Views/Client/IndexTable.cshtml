@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "IndexTable";
+}
+
+<h2>IndexTable</h2>
+@*<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>*@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.dataTables.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+
+        new DataTable('#example', {
+            /* ajax: "https://localhost:44343/api/Department",*/
+
+            ajax: {
+                url: 'https://localhost:44343/api/Department',
+                dataFilter: function (resp) {
+                    // debugger;
+                    alert(resp);
+                    return resp;
+                },
+                error: function (err) {
+                    debugger;
+                },
+                dataSrc: 'Records',
+                columns: [
+                    { data: "DeptNo" },
+                    { data: "DeptName" },
+                    { data: "Location" },
+                    { data: "Capacity" },
+                    { data: "DeptUniqueId" },
+                ]
+            }
+        });
+    });
+</script>
+
+
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>DeptNo</th>
+            <th>DeptName</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>DeptUniqueId</th>
+            <th>Employees</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>DeptNo</td>
+            <td>DeptName</td>
+            <td>Location</td>
+            <td>Capacity</td>
+            <td>DeptUniqueId</td>
+            <td>Employees</td>
+        </tr>
+    </tfoot>
+</table>

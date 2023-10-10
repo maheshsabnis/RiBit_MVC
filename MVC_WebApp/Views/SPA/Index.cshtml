@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Single Page Application (SPA)</h2>
+<h5>This will fetch Partial Views from MVC App. Each Partial View will Make HTTP Call to API for Data Operations</h5>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnlist").on('click', function () {
+            var url = '@Url.Action("List", "SPA")';
+            loadView(url);
+        });
+
+        $("#btnadd").on('click', function () {
+            var url = '@Url.Action("Add", "SPA")';
+            loadView(url);
+        });
+        $("#btnedit").on('click', function () {
+            var url = '@Url.Action("Edit", "SPA")';
+            loadView(url);
+        });
+        $("#btndelete").on('click', function () {
+             var url = '@Url.Action("Delete", "SPA")';
+             loadView(url);
+        });
+        $("#btnclear").on('click', function () {
+            $("#dvview").html('');
+        });
+
+    });
+
+    function loadView(url) {
+        alert(url);
+        $.ajax({
+            url: url,
+            method: 'GET',
+        }).done(function (resp) {
+            $("#dvview").html(resp);
+        }).fail(function (error) {
+            $("#dvview").html(error);
+        });
+    }
+</script>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td>
+                <button class="btn btn-dark" id="btnlist">List</button>
+            </td>
+            <td>
+                <button class="btn btn-success" id="btnadd">Add</button>
+            </td>
+            <td>
+                <button class="btn btn-warning" id="btnedit">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" id="btndelete">Delete</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" id="btnclear">Clear</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr/>
+<div class="container" id="dvview"></div>
+

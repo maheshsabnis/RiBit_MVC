@@ -73,3 +73,8 @@ Tools->Package Manager COnsole
 Enable-Migrations -ContextTypeName [NAmeSpace.ContextClassName]
 
 Add-Migration [Migration-Name]
+
+
+# INstalling DataTable.js
+
+Install-Package datatables.net-dt

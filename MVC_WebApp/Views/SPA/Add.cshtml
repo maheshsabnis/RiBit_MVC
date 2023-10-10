@@ -1,1 +1,66 @@
 ﻿<h3>The Create View</h3>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $("#btnclear").on('click', function () {
+            /* Clear all Text elements having class as form-control */
+            $(".form-control").val('');
+        });
+
+        $("#btnsave").on('click', function () {
+            var dept = {
+                DeptName: $("#txtdname").val(),
+                Location: $("#txtloc").val(),
+                Capacity: parseInt($("#txtcap").val()),
+                DeptUniqueId: $("#txtduniqid").val(),
+            };
+            $.ajax({
+                url: 'https://localhost:44343/api/Department',
+                method: 'POST',
+                data: JSON.stringify(dept),
+                dataType: 'json',
+                contentType:'application/json'
+            }).done(function (resp) {
+                $("#dv").text(`Data is addeed successfully`);
+                $("#txtdno").val(resp.Record.DeptNo);
+            }).fail(function (error) {
+                $("#dv").text(`Data is failed to add ${error}`);
+            });
+        });
+
+    });
+</script>
+
+
+<div class="container">
+    <div class="form-group">
+        <label>DeptNo</label>
+        <input type="text" id="txtdno" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label>DeptName</label>
+        <input type="text" id="txtdname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="txtloc" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Capacity</label>
+        <input type="text" id="txtcap" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>DeptUniqueId</label>
+        <input type="text" id="txtduniqid" class="form-control" />
+    </div>
+    <div class="btn-group-lg">
+        <button class="btn btn-warning" id="btnclear">
+            Clear
+        </button>
+        <button class="btn btn-success" id="btnsave">Save</button>
+    </div>
+</div>
+<hr/>
+<div class="contanier" id="dv"></div>
